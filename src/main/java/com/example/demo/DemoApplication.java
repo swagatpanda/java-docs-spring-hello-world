@@ -15,6 +15,17 @@ public class DemoApplication {
 
 	@RequestMapping("/up")
 	String sayHello() {
-		return "Hello World App Is Up!";
+		return "App Is Up!";
 	}
+
+	@RequestMapping("/userRegistration")
+	String sayHello() {
+		return "User has been registered";
+	}
+
+	@RequestMapping("/paymentInitiation")
+	String sayHello() {
+		return "Payment has been initiated";
+	}
+
 }
