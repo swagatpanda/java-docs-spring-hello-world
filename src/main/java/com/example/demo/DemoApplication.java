@@ -13,8 +13,8 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-	@RequestMapping("/")
+	@RequestMapping("/up")
 	String sayHello() {
-		return "Hello World!";
+		return "Hello World App Is Up!";
 	}
 }
