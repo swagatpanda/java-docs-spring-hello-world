@@ -14,17 +14,17 @@ public class DemoApplication {
 	}
 
 	@RequestMapping("/up")
-	String sayHello() {
+	String up() {
 		return "App Is Up!";
 	}
 
 	@RequestMapping("/userRegistration")
-	String sayHello() {
+	String userRegistration() {
 		return "User has been registered";
 	}
 
 	@RequestMapping("/paymentInitiation")
-	String sayHello() {
+	String paymentInitiation() {
 		return "Payment has been initiated";
 	}
 
