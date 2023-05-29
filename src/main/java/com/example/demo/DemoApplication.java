@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 @SpringBootApplication
 @RestController
@@ -21,13 +24,15 @@ public class DemoApplication {
 	}
 
 	@PostMapping("/userRegistration")
-	String userRegistration() {
-		return "User has been registered";
+	ResponseEntity<String> userRegistration(@RequestBody String body) {
+		System.out.println("Request = " + body);
+		return new ResponseEntity<>("User Registration Complete", HttpStatus.OK);
 	}
 
 	@PostMapping("/paymentInitiation")
-	String paymentInitiation() {
-		return "Payment has been initiated";
+	ResponseEntity<String> paymentInitiation(@RequestBody String body) {
+		System.out.println("Request = " + body);
+		return new ResponseEntity<>("Payment Initiation Complete", HttpStatus.OK);
 	}
 
 }
