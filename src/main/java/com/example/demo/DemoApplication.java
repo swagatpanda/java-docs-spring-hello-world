@@ -18,12 +18,12 @@ public class DemoApplication {
 		return "App Is Up!";
 	}
 
-	@RequestMapping("/userRegistration")
+	@PostMapping("/userRegistration")
 	String userRegistration() {
 		return "User has been registered";
 	}
 
-	@RequestMapping("/paymentInitiation")
+	@PostMapping("/paymentInitiation")
 	String paymentInitiation() {
 		return "Payment has been initiated";
 	}
