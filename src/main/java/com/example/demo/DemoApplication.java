@@ -25,13 +25,13 @@ public class DemoApplication {
 
 	@PostMapping("/userRegistration")
 	ResponseEntity<String> userRegistration(@RequestBody CheckUserRegistrationStatusRequest body) {
-		System.out.println("Request = " + body);
+		System.out.println("Request = " + body.toString());
 		return new ResponseEntity<>("User Registration Complete", HttpStatus.OK);
 	}
 
 	@PostMapping("/paymentInitiation")
 	ResponseEntity<String> paymentInitiation(@RequestBody String body) {
-		System.out.println("Request = " + body);
+		System.out.println("Request = " + body.toString());
 		return new ResponseEntity<>("Payment Initiation Complete", HttpStatus.OK);
 	}
 
