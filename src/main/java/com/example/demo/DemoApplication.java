@@ -9,10 +9,15 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootApplication
 @RestController
 public class DemoApplication {
+
+	ObjectMapper om = new ObjectMapper();
+	String responseJson = "{\"version\":\"1.0\",\"encoding\":\"utf-8\",\"soap$Envelope\":{\"@xmlns$soap\":\"http://schemas.xmlsoap.org/soap/envelope/\",\"Header\":{\"ServiceResponseInfo\":{\"RequestDateTime\":\"2006-08-1972T22:57:14+05:30\",\"RequestID\":\"5673\",\"SesstionID\":\"2371\",\"UserID\":\"1982\",\"ReturnCode\":\"0\",\"ReasonCode\":\"5009\",\"ReasonMessage\":\"Sample Message\",\"Detail\":\"description\"}},\"soap$Body\":{\"checkUserRegistrationStatusResponse\":{\"RegistrationStatus\":\"Y\",\"AccountList\":{\"Account\":{\"Type\":\"AchAccount\",\"Id\":\"123456\",\"AchAccount\":{\"Nickname\":\"Jonny\",\"AccountNumberLast4\":\"1234\",\"AccountType\":\"C\"}}}}}}}";
+	public static final CheckUserRegistrationStatusResponseRoot SAMPLE_RESPONSE = om.readValue(responseJson, Root.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
@@ -24,15 +29,15 @@ public class DemoApplication {
 	}
 
 	@PostMapping("/userRegistration")
-	ResponseEntity<String> userRegistration(@RequestBody CheckUserRegistrationStatusRequest body) {
+	ResponseEntity<CheckUserRegistrationStatusResponseRoot> userRegistration(@RequestBody CheckUserRegistrationStatusRequest body) {
 		System.out.println("Request = " + body.toString());
-		return new ResponseEntity<>("User Registration Complete", HttpStatus.OK);
+		return new ResponseEntity<>(SAMPLE_RESPONSE, HttpStatus.OK);
 	}
 
 	@PostMapping("/paymentInitiation")
-	ResponseEntity<String> paymentInitiation(@RequestBody CheckUserRegistrationStatusRequest body) {
+	ResponseEntity<CheckUserRegistrationStatusResponseRoot> paymentInitiation(@RequestBody CheckUserRegistrationStatusRequest body) {
 		System.out.println("Request = " + body.toString());
-		return new ResponseEntity<>("Payment Initiation Complete", HttpStatus.OK);
+		return new ResponseEntity<>(SAMPLE_RESPONSE, HttpStatus.OK);
 	}
 
 }
