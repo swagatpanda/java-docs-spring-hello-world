@@ -24,7 +24,7 @@ public class DemoApplication {
 	}
 
 	@PostMapping("/userRegistration")
-	ResponseEntity<String> userRegistration(@RequestBody String body) {
+	ResponseEntity<String> userRegistration(@RequestBody CheckUserRegistrationStatusRequest body) {
 		System.out.println("Request = " + body);
 		return new ResponseEntity<>("User Registration Complete", HttpStatus.OK);
 	}
