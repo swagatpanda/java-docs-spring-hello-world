@@ -15,8 +15,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @RestController
 public class DemoApplication {
 
-	ObjectMapper om = new ObjectMapper();
-	String responseJson = "{\"version\":\"1.0\",\"encoding\":\"utf-8\",\"soap$Envelope\":{\"@xmlns$soap\":\"http://schemas.xmlsoap.org/soap/envelope/\",\"Header\":{\"ServiceResponseInfo\":{\"RequestDateTime\":\"2006-08-1972T22:57:14+05:30\",\"RequestID\":\"5673\",\"SesstionID\":\"2371\",\"UserID\":\"1982\",\"ReturnCode\":\"0\",\"ReasonCode\":\"5009\",\"ReasonMessage\":\"Sample Message\",\"Detail\":\"description\"}},\"soap$Body\":{\"checkUserRegistrationStatusResponse\":{\"RegistrationStatus\":\"Y\",\"AccountList\":{\"Account\":{\"Type\":\"AchAccount\",\"Id\":\"123456\",\"AchAccount\":{\"Nickname\":\"Jonny\",\"AccountNumberLast4\":\"1234\",\"AccountType\":\"C\"}}}}}}}";
+	private static ObjectMapper om = new ObjectMapper();
+	private static String responseJson = "{\"version\":\"1.0\",\"encoding\":\"utf-8\",\"soap$Envelope\":{\"@xmlns$soap\":\"http://schemas.xmlsoap.org/soap/envelope/\",\"Header\":{\"ServiceResponseInfo\":{\"RequestDateTime\":\"2006-08-1972T22:57:14+05:30\",\"RequestID\":\"5673\",\"SesstionID\":\"2371\",\"UserID\":\"1982\",\"ReturnCode\":\"0\",\"ReasonCode\":\"5009\",\"ReasonMessage\":\"Sample Message\",\"Detail\":\"description\"}},\"soap$Body\":{\"checkUserRegistrationStatusResponse\":{\"RegistrationStatus\":\"Y\",\"AccountList\":{\"Account\":{\"Type\":\"AchAccount\",\"Id\":\"123456\",\"AchAccount\":{\"Nickname\":\"Jonny\",\"AccountNumberLast4\":\"1234\",\"AccountType\":\"C\"}}}}}}}";
 	public static final CheckUserRegistrationStatusResponseRoot SAMPLE_RESPONSE = om.readValue(responseJson, Root.class);
 
 	public static void main(String[] args) {
