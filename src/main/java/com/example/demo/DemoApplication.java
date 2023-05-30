@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 
 @SpringBootApplication
 @RestController
@@ -20,8 +22,8 @@ public class DemoApplication {
 	private static CheckUserRegistrationStatusResponseRoot SAMPLE_RESPONSE;
 
 	public static void main(String[] args) throws JsonMappingException, JsonProcessingException {
-		SpringApplication.run(DemoApplication.class, args);
 		SAMPLE_RESPONSE = om.readValue(responseJson, CheckUserRegistrationStatusResponseRoot.class);
+		SpringApplication.run(DemoApplication.class, args);
 	}
 
 	@RequestMapping("/up")
