@@ -30,7 +30,7 @@ public class DemoApplication {
 	}
 
 	@PostMapping("/paymentInitiation")
-	ResponseEntity<String> paymentInitiation(@RequestBody String body) {
+	ResponseEntity<String> paymentInitiation(@RequestBody CheckUserRegistrationStatusRequest body) {
 		System.out.println("Request = " + body.toString());
 		return new ResponseEntity<>("Payment Initiation Complete", HttpStatus.OK);
 	}
